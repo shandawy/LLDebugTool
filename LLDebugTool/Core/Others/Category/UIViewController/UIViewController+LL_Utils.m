@@ -97,6 +97,11 @@
 
 - (void)LL_showActionSheetWithTitle:(NSString *)title actions:(NSArray *)actions currentAction:(NSString *)currentAction completion:(void (^)(NSInteger index))completion {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:title preferredStyle:UIAlertControllerStyleActionSheet];
+    if (LL_IS_IPAD) {
+        [alert.popoverPresentationController setPermittedArrowDirections:0];
+        alert.popoverPresentationController.sourceView = self.view;
+        alert.popoverPresentationController.sourceRect = self.view.bounds;
+    }
     for (NSInteger i = 0; i < actions.count; i++) {
         NSString *actionTitle = actions[i];
         __block NSInteger index = i;
