@@ -47,4 +47,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 #define LLLocalizedString(key) \
 [[LLConfig shared].imageBundle localizedStringForKey:(key) value:@"" table:nil]
 
+/// is ipad
+#define LL_IS_IPAD ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+
 #endif /* LLInternalMacros_h */
